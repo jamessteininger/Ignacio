@@ -1,5 +1,7 @@
 == README
 
+![img](Screenshot 2014-12-25 at 3.26.33 AM.png)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
