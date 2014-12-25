@@ -8,6 +8,7 @@ gem 'bootstrap-sass'
 gem 'rails4-autocomplete'
 gem "chartkick"
 gem 'devise'
+gem 'pg'
 gem 'auto_html'
 gem 'will_paginate-bootstrap'
 gem 'font-awesome-rails'
