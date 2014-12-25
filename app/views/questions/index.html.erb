@@ -1,0 +1,27 @@
+<!-- IGNACIO *~-._.-~* IGNACIO *~-._.-~* IGNACIO 
+
+Ignacio - Copyright 2014-2015
+
+David Steininger - Founder
+James Steininger - Developer
+
+--
+
+QUESTIONS INDEX 
+
+-->
+<div class="container">
+  <h1>
+    Engineering questions
+    <%= link_to  new_question_path, class: 'btn btn-default' do %>Add a new Question<% end %>
+  </h1>
+  <hr>
+  <% @questions.order('created_at DESC').each do |question| %>
+  <h2>
+    <%= link_to question.title, question %>
+    <span class='label label-default'><%= question.category %></span>
+  </h2>
+  <hr>
+  <% end %>
+
+</div>

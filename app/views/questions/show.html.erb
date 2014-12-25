@@ -1,0 +1,60 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>
+    <%= @question.title %> <span class='label label-default'><%= @question.category %></span>
+    <% if user_signed_in? and current_user.id == @question.user_id %>
+    <%= link_to 'Edit', edit_question_path(@question), class: 'btn btn-default' %>
+    <%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <% end %>
+  </h1>
+  <hr>
+  <p><i><b>Posted <%= @question.created_at %> </b></i></p>
+  <%= @question.body_html %>
+  <hr>
+  <h2>Answers</h2>
+  <% @question.answers.each do |f| %>
+  <div class='well'>
+    <p><i><b>Posted <%= f.created_at %> </b></i></p>
+    <% if user_signed_in? and current_user.id == f.user_id %>
+    <%= link_to 'Edit', edit_answer_path(f), class: 'btn btn-default' %>
+    <%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <% end %>
+    <p>
+      <%= f.body_html %>
+    </p>
+    <hr>
+  </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+  <hr>
+  <h2>Post an answer</h2>
+  <%= form_for(@answer) do |f| %>
+  <% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:
+    </h2>
+    <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :question_id, value: @question.id %>
+  Type your answer here. You can also include links to YouTube videos or image URLs, and they will automatically be shown in your answer. You can use <%= link_to "Imgur", "http://imgur.com/" %> to upload images.
+  </p>
+<%= f.text_area :body, rows: 8, id: 'auto_html_question_body', class: 'form-control' %>
+<hr>
+<div class="actions">
+  <%= f.submit class: 'btn btn-primary btn-block' %>
+</div>
+<% end %>
+<% else %>
+<%= link_to "Sign up to post an answer to this question.", new_user_registration_path %>
+<% end %>
+
+</div>

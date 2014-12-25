@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @answer.user_id %>
+</p>
+
+<p>
+  <strong>Upvotes:</strong>
+  <%= @answer.upvotes %>
+</p>
+
+<p>
+  <strong>Downvotes:</strong>
+  <%= @answer.downvotes %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @answer.content %>
+</p>
+
+<p>
+  <strong>Imageurl:</strong>
+  <%= @answer.imageurl %>
+</p>
+
+<p>
+  <strong>Producturl:</strong>
+  <%= @answer.producturl %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question_id %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

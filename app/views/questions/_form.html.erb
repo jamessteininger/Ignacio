@@ -1,0 +1,41 @@
+
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<!-- AUTO HTML -->
+
+
+
+<!-- END AUTO HTML -->
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+<hr>
+<div class="form-group">
+    <%= f.label :category %><br>
+    <%= f.select(:category, options_for_select(['Piping', 'Welding', 'Pumps', 'Containment']), {} , {class: 'form-control'}) %>
+  </div>
+<hr>
+  Type your question here. You can also include links to YouTube videos or image URLs, and they will automatically be shown in your answer. You can use <%= link_to "Imgur", "http://imgur.com/" %> to upload images.
+</p>
+<%= f.text_area :body, rows: 8, id: 'auto_html_question_body', class: 'form-control' %>
+
+<hr>
+ 
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary btn-block' %>
+  </div>
+<% end %>

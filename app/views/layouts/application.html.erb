@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ignacio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ignacio is a platform for world-wide engineering consultation and problem solving.">
+  <meta name="name" content="Ignacio - The Open Engineering Platform">
+  <meta name="about" content="Ignacio is a platform for world-wide engineering consultation and problem solving.">
+  <meta name="author" content="David Steininger and James Steininger">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/navbar' %>
+  <div class="container-fluid">
+<%= yield %>
+  </div>
+  <%= render 'layouts/footer' %>
+</body>
+</html>
