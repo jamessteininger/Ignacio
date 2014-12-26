@@ -3,7 +3,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   
   validates :title, presence: true
-  validates :content, presence: true
+  #validates :content, presence: true
   
   # Question.create(:body => 'Hey check out this cool video: http://www.youtube.com/watch?v=WdsGihou8J4')
   
